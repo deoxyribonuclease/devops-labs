@@ -1,0 +1,12 @@
+# Dependencies 
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
