@@ -1,0 +1,29 @@
+name: CI Workflow
+ 
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+ 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+ 
+    - name: Check project structure
+      run: |
+        test -f index.html
+        test -f style.css
+        test -f script.js
+ 
+    - name: Check JavaScript syntax
+      run: node --check script.js
